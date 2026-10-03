@@ -8,7 +8,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: ({ children, ...props }) => (
       <h1
-        className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mt-8 mb-4 border-b border-zinc-200 dark:border-zinc-800 pb-2"
+        className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mt-8 mb-4 border-b border-slate-200 dark:border-slate-800 pb-2"
         {...props}
       >
         {children}
@@ -17,14 +17,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h2: ({ children, id, ...props }) => (
       <h2
         id={id}
-        className="text-xl sm:text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 mt-10 mb-3 scroll-mt-20 group flex items-center"
+        className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mt-10 mb-3 scroll-mt-20 group flex items-center"
         {...props}
       >
         <span>{children}</span>
         {id && (
           <a
             href={`#${id}`}
-            className="ml-2 text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity text-base font-normal"
+            className="ml-2 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity text-base font-normal"
             aria-label="Permalink"
           >
             #
@@ -35,24 +35,24 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h3: ({ children, id, ...props }) => (
       <h3
         id={id}
-        className="text-base sm:text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-200 mt-6 mb-2 scroll-mt-20"
+        className="text-base sm:text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-200 mt-6 mb-2 scroll-mt-20"
         {...props}
       >
         {children}
       </h3>
     ),
     p: ({ children, ...props }) => (
-      <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed my-3 text-[15px]" {...props}>
+      <p className="text-slate-700 dark:text-slate-300 leading-relaxed my-3.5 text-[15px]" {...props}>
         {children}
       </p>
     ),
     ul: ({ children, ...props }) => (
-      <ul className="list-disc pl-5 my-3 space-y-1.5 text-zinc-700 dark:text-zinc-300 text-[15px]" {...props}>
+      <ul className="list-disc pl-5 my-3.5 space-y-1.5 text-slate-700 dark:text-slate-300 text-[15px]" {...props}>
         {children}
       </ul>
     ),
     ol: ({ children, ...props }) => (
-      <ol className="list-decimal pl-5 my-3 space-y-1.5 text-zinc-700 dark:text-zinc-300 text-[15px]" {...props}>
+      <ol className="list-decimal pl-5 my-3.5 space-y-1.5 text-slate-700 dark:text-slate-300 text-[15px]" {...props}>
         {children}
       </ol>
     ),
@@ -63,7 +63,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     blockquote: ({ children, ...props }) => (
       <blockquote
-        className="my-4 border-l-2 border-orange-500 pl-4 py-1 italic text-zinc-700 dark:text-zinc-300 text-sm"
+        className="my-4 border-l-2 border-orange-500 pl-4 py-1 italic text-slate-700 dark:text-slate-300 text-sm"
         {...props}
       >
         {children}
@@ -73,7 +73,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       if (!className) {
         return (
           <code
-            className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-orange-600 dark:text-orange-400 font-mono text-xs border border-zinc-200 dark:border-zinc-700"
+            className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-mono text-[13px] border border-slate-200 dark:border-slate-700/70 font-medium"
             {...props}
           >
             {children}
@@ -106,7 +106,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       )
     },
     hr: ({ ...props }) => (
-      <hr className="my-8 border-zinc-200 dark:border-zinc-800" {...props} />
+      <hr className="my-8 border-slate-200 dark:border-slate-800" {...props} />
     ),
     a: ({ href, children, ...props }) => (
       <a
