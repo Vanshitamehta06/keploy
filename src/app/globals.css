@@ -3,37 +3,27 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 98%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --border: 240 5.9% 90%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-  }
-
-  .dark {
-    --background: 240 10% 4%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 6%;
-    --border: 240 3.7% 15.9%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-  }
-
   body {
-    @apply bg-[#fafafa] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 antialiased font-sans selection:bg-orange-500/20 selection:text-orange-600 dark:selection:text-orange-400;
+    @apply bg-slate-50 text-slate-800 dark:bg-[#0b0e17] dark:text-slate-200 antialiased font-sans transition-colors duration-150;
+  }
+
+  ::selection {
+    @apply bg-orange-500/20 text-orange-600 dark:text-orange-400;
   }
 }
 
-/* Crisp scrollbar */
+/* Custom crisp scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-zinc-300 dark:bg-zinc-800 rounded-full hover:bg-zinc-400 dark:hover:bg-zinc-700;
+  @apply bg-slate-300 dark:bg-slate-700/60 rounded-full hover:bg-slate-400 dark:hover:bg-slate-600;
+}
+
+code {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
 }

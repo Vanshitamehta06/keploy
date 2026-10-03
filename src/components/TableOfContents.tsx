@@ -9,11 +9,11 @@ interface TocItem {
 }
 
 const tocItems: TocItem[] = [
-  { id: 'the-problem', title: 'The Testing Dilemma' },
-  { id: 'how-it-works', title: 'How Keploy Works' },
+  { id: 'the-problem', title: 'The Problem' },
+  { id: 'how-it-works', title: 'How It Works' },
   { id: 'prerequisites', title: 'Prerequisites' },
   { id: 'step-1-record', title: '1. Record Traffic' },
-  { id: 'step-2-artifacts', title: '2. Generated Artifacts' },
+  { id: 'step-2-artifacts', title: '2. Generated YAML' },
   { id: 'step-3-test', title: '3. Test Without DB' },
   { id: 'step-4-regression', title: 'Catching Regressions' },
   { id: 'takeaways', title: 'Key Takeaways' },
@@ -46,12 +46,12 @@ export function TableOfContents() {
   }, [])
 
   return (
-    <aside className="hidden lg:block w-56 flex-shrink-0 sticky top-20 self-start text-xs">
-      <div className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-3 font-semibold">
+    <aside className="hidden lg:block w-60 flex-shrink-0 sticky top-24 self-start text-xs">
+      <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3 font-semibold">
         On this page
       </div>
 
-      <nav className="space-y-1 border-l border-zinc-200 dark:border-zinc-800 pl-3">
+      <nav className="space-y-1.5 border-l border-slate-200 dark:border-slate-800/80 pl-3">
         {tocItems.map((item) => {
           const isActive = activeId === item.id
           return (
@@ -59,10 +59,10 @@ export function TableOfContents() {
               key={item.id}
               href={`#${item.id}`}
               className={cn(
-                'block py-1 transition-colors leading-tight',
+                'block py-0.5 transition-colors leading-normal',
                 isActive
                   ? 'font-medium text-orange-600 dark:text-orange-400'
-                  : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
+                  : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
               )}
             >
               {item.title}
@@ -71,15 +71,17 @@ export function TableOfContents() {
         })}
       </nav>
 
-      <div className="mt-8 pt-4 border-t border-zinc-200 dark:border-zinc-800 text-[11px] text-zinc-500 space-y-1.5">
-        <div>Go 1.20+ • Gin • MongoDB</div>
+      <div className="mt-8 pt-4 border-t border-slate-200 dark:border-slate-800/80 text-[11px] text-slate-500 dark:text-slate-400 space-y-2">
+        <div className="font-mono text-slate-400 dark:text-slate-500 text-[10px] uppercase">
+          Sample Reference
+        </div>
         <a
           href="https://github.com/keploy/samples-go/tree/main/gin-mongo"
           target="_blank"
           rel="noreferrer"
-          className="text-orange-600 dark:text-orange-400 hover:underline block"
+          className="text-orange-600 dark:text-orange-400 hover:underline block font-medium"
         >
-          View Sample on GitHub ↗
+          keploy/samples-go ↗
         </a>
       </div>
     </aside>
