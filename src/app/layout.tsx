@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { ThemeToggle } from '@/components/ThemeToggle'
-import { Github, BookOpen, Sparkles, ExternalLink } from 'lucide-react'
+import { Github, ExternalLink } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Zero-Code Testing for Go with Keploy | Gin + Mongo Quickstart Tutorial',
+  title: 'Testing Go & MongoDB with Keploy | DevRel Assignment',
   description:
-    'A developer-first, beginner-friendly guide to recording real HTTP & MongoDB traffic and generating deterministic integration tests in Go without writing mock boilerplate.',
+    'A practical tutorial on recording HTTP & MongoDB traffic to generate zero-code integration tests with Keploy.',
 }
 
 export default function RootLayout({
@@ -17,85 +17,68 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#07090e] text-slate-800 dark:text-slate-100 selection:bg-orange-500/20 selection:text-orange-500">
+      <body className="min-h-screen flex flex-col bg-[#fafafa] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 font-sans">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {/* Top Sticky Header */}
-          <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-[#07090e]/80 backdrop-blur-md">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-              {/* Brand Logo & Title */}
-              <div className="flex items-center gap-3">
-                <a href="/" className="flex items-center gap-2.5 group">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
-                    🐰
-                  </div>
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-2">
-                      <span className="font-extrabold text-slate-900 dark:text-slate-100 text-base tracking-tight">
-                        keploy
-                      </span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 font-semibold border border-orange-500/20">
-                        DevRel Assignment
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
+          {/* Minimal Nav */}
+          <nav className="border-b border-zinc-200 dark:border-zinc-800 bg-[#fafafa]/80 dark:bg-[#09090b]/80 backdrop-blur sticky top-0 z-40">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+              <a href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
+                <span className="text-base">🐰</span>
+                <span className="text-zinc-900 dark:text-zinc-100">keploy</span>
+                <span className="text-zinc-400 font-normal">/</span>
+                <span className="text-xs font-mono text-zinc-500 font-normal">devrel-tutorial</span>
+              </a>
 
-              {/* Navigation Links & Actions */}
               <div className="flex items-center gap-3">
                 <a
                   href="https://github.com/keploy/keploy"
                   target="_blank"
                   rel="noreferrer"
-                  className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
+                  className="flex items-center gap-1 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                 >
                   <Github className="w-3.5 h-3.5" />
-                  <span>keploy/keploy</span>
+                  <span className="hidden sm:inline">GitHub</span>
                 </a>
 
                 <a
                   href="https://docs.keploy.io"
                   target="_blank"
                   rel="noreferrer"
-                  className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
+                  className="flex items-center gap-1 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                 >
-                  <BookOpen className="w-3.5 h-3.5" />
                   <span>Docs</span>
-                  <ExternalLink className="w-2.5 h-2.5 opacity-60" />
+                  <ExternalLink className="w-2.5 h-2.5 opacity-70" />
                 </a>
 
                 <ThemeToggle />
               </div>
             </div>
-          </header>
+          </nav>
 
-          {/* Main Content Shell */}
+          {/* Main content */}
           <main className="flex-1">{children}</main>
 
-          {/* Footer */}
-          <footer className="border-t border-slate-200 dark:border-slate-800/80 bg-white/50 dark:bg-[#07090e]/50 py-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
-              <div className="flex items-center gap-2">
-                <span>Built with Next.js, MDX & Tailwind CSS</span>
-                <span>•</span>
-                <span>Keploy DevRel Candidate Assignment</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <a
-                  href="https://keploy.io"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-orange-500 transition-colors"
-                >
-                  keploy.io
-                </a>
+          {/* Minimal Footer */}
+          <footer className="border-t border-zinc-200 dark:border-zinc-800 py-6 text-xs text-zinc-500 text-center">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+              <span>Keploy DevRel Candidate Assignment</span>
+              <div className="flex items-center gap-3">
                 <a
                   href="https://github.com/keploy/samples-go"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-orange-500 transition-colors"
+                  className="hover:text-zinc-800 dark:hover:text-zinc-300"
                 >
                   samples-go
+                </a>
+                <span>&bull;</span>
+                <a
+                  href="https://keploy.io"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-zinc-800 dark:hover:text-zinc-300"
+                >
+                  keploy.io
                 </a>
               </div>
             </div>
